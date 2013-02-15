@@ -114,7 +114,7 @@ public class CommonInterface extends JFrame implements ActionListener
     // Set the default close operation and make the correct size.
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     pack();
-    
+    setLocationRelativeTo(null);
   } // CommonInterface
   
   // Action performed method
