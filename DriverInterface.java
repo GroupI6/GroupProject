@@ -110,6 +110,7 @@ public class DriverInterface extends JFrame implements ActionListener
     // Set the default close operation and make the correct size.
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     pack();
+    setLocationRelativeTo(null);
   } // DriverInterface
   
   // Action performed method
