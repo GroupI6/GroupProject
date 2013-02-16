@@ -1,18 +1,19 @@
 import java.awt.Container;
-import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import java.awt.Color;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.Font;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.Font;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Component;
-import javax.swing.Box;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 // Program to implement a user interface.
 public class CommonInterface extends JFrame implements ActionListener
@@ -75,7 +76,7 @@ public class CommonInterface extends JFrame implements ActionListener
   public CommonInterface()
   {
     // Set the window title
-    setTitle("IBMS Bus Company");
+    setTitle("IBMS: Main");
     
     // Make contents appear.
     Container contents = getContentPane();
@@ -91,7 +92,7 @@ public class CommonInterface extends JFrame implements ActionListener
     JPanel mainPanel = new JPanel();
     
     // Add mainPanel to the layout and format
-    contents.add(mainPanel, BorderLayout.SOUTH);
+    contents.add(mainPanel, BorderLayout.CENTER);
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
     mainPanel.setBackground(Color.white);
     
