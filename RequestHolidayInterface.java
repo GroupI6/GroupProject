@@ -16,6 +16,8 @@ import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 // Program to implement a user interface.
@@ -113,9 +115,10 @@ public class RequestHolidayInterface extends JFrame implements ActionListener
     // Top left of the main panel       
     mainPanel.add(new JLabel("Driver ID"));
     
-  	// Top right of the main panel
+		// Top right of the main panel
 		JPanel driverIDPanel = new JPanel();
 		mainPanel.add(driverIDPanel);
+		formatPanel(driverIDPanel);
 		driverIDPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
 		// Add the JTextField
@@ -129,6 +132,7 @@ public class RequestHolidayInterface extends JFrame implements ActionListener
     // Use a JPanel so the alignment matches everything else.
     JPanel startDateJPanel = new JPanel();
     mainPanel.add(startDateJPanel);
+    formatPanel(startDateJPanel);
     startDateJPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
     
     // JTextFields for the date components, with JLabels
@@ -146,6 +150,7 @@ public class RequestHolidayInterface extends JFrame implements ActionListener
     // Use a JPanel so the alignment matches everything else.
     JPanel endDateJPanel = new JPanel();
     mainPanel.add(endDateJPanel);
+    formatPanel(endDateJPanel);
     endDateJPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
     
     // JTextFields for the date components, with JLabels
@@ -183,28 +188,28 @@ public class RequestHolidayInterface extends JFrame implements ActionListener
       {
         int driverID = Integer.parseInt(driverIDJTextField.getText());
         
-        Date startDate 
-        = new Date((Long.parseLong(startDayJTextField.getText()),
+        Calendar startCal = new GregorianCalendar(Integer.parseInt(startYearJTextField.getText()),
         					 Integer.parseInt(startMonthJTextField.getText()),
-        					 Integer.parseInt(startYearJTextField.getText()));
+        					 Integer.parseInt(startDayJTextField.getText()));
         					 
-        Date endDate 
-        = new Date(Integer.parseInt(endDayJTextField.getText()),
+        Date startDate = startCal.getTime();
+        
+        Calendar endCal = new GregorianCalendar(Integer.parseInt(endYearJTextField.getText()),
         					 Integer.parseInt(endMonthJTextField.getText()),
-        					 Integer.parseInt(endYearJTextField.getText()));  
-        					             
-        System.out.println(driverID);
-        System.out.println(startDate);
-        System.out.println(endDate);
+        					 Integer.parseInt(endDayJTextField.getText()));
+        				 
+        Date endDate = endCal.getTime();
       } // try
       
       catch (NumberFormatException exception)
       {
-        System.out.println("NOOOOOOOOO");
+        System.out.println("Driver ID has been inputted incorrectly");
       } // catch
-      // First check that the DriverID has been inputted correctly.
-      
-      System.out.println("You have submitted your request for approval");
+
+      // CODE WOULD GO HERE TO CONNECT TO THE DATABASE
+      ConfirmationInterface theConfirmationInterface = new ConfirmationInterface();
+      theConfirmationInterface.setVisible(true);
+      this.dispose();
     } // if
   } // actionPerformed
 
