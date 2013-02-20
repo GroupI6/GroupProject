@@ -21,6 +21,7 @@ public class DriverInterface extends JFrame implements ActionListener
   private JButton requestHoliday = new JButton("Request A Holiday");
   private JButton viewRoster = new JButton("View Roster");
   private JButton viewTimetable = new JButton("View Timetable");
+  private JButton logoutButton = new JButton("Log Out");
   
   // A public method to set the heading
   private static JPanel setHeading()
@@ -35,7 +36,7 @@ public class DriverInterface extends JFrame implements ActionListener
     // JLabel for the company name
     JLabel companyName = new JLabel("GMPTE");
     JLabel productName = new JLabel("Integrated Bus Management System (IBMS)");
-    
+    JLabel loginName ;
     // Change fonts etc to match logo
     companyName.setFont(new Font("Serif", Font.BOLD, 32));
     companyName.setForeground(Color.black);
@@ -43,10 +44,21 @@ public class DriverInterface extends JFrame implements ActionListener
     productName.setFont(new Font("Serif", Font.BOLD, 16));
     productName.setForeground(Color.black);
     
+    LoginInterface theLoginInterface = new LoginInterface();
+    loginName= new JLabel(theLoginInterface.loggedName()) ;
+    
+    loginName.setFont(new Font("Serif", Font.BOLD, 18));
+    loginName.setForeground(Color.black);
+    
     // First element for the companyHeaderPanel
     companyHeaderPanel.add(companyName);
     companyHeaderPanel.add(productName);
     
+     
+
+    companyHeaderPanel.add(loginName);    
+
+
     return(companyHeaderPanel);
   } // setHeading
   
@@ -90,11 +102,15 @@ public class DriverInterface extends JFrame implements ActionListener
     contents.add(mainPanel, BorderLayout.CENTER);
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
     mainPanel.setBackground(Color.white);
-    
+   
+
+
+
     // Format the buttons
     requestHoliday = makeButton(requestHoliday, requestHoliday);
     viewRoster = makeButton(viewRoster, requestHoliday);
     viewTimetable = makeButton(viewTimetable, requestHoliday);
+    logoutButton = makeButton(logoutButton, requestHoliday);
 
     // Add JButtons to layout
     mainPanel.add(requestHoliday);
@@ -106,6 +122,10 @@ public class DriverInterface extends JFrame implements ActionListener
     mainPanel.add(viewTimetable);
     viewTimetable.addActionListener(this);
     mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+mainPanel.add(logoutButton);
+    logoutButton.addActionListener(this);
+    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+
     
     // Set the default close operation and make the correct size.
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -128,6 +148,12 @@ public class DriverInterface extends JFrame implements ActionListener
       
     else if (thisEvent.getSource() == viewTimetable)
       System.out.println("I am viewing the timetable");
+    else if(thisEvent.getSource() == logoutButton)
+     {
+      LoginInterface theLoginInterface = new LoginInterface();
+     theLoginInterface.setVisible(true);
+      this.dispose();
+    }
   } // actionPerformed
 
 } // class DriverInterface
