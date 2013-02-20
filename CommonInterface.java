@@ -22,6 +22,8 @@ public class CommonInterface extends JFrame implements ActionListener
   private JButton passengerSelect = new JButton("Passenger");
   private JButton driverSelect = new JButton("Driver");
   private JButton controllerSelect = new JButton("Controller");
+  private JButton homeSelect = new JButton("Home");
+
   
   // A public method to set the heading
   private static JPanel setHeading()
@@ -100,6 +102,7 @@ public class CommonInterface extends JFrame implements ActionListener
     passengerSelect = makeButton(passengerSelect, controllerSelect);
     driverSelect = makeButton(driverSelect, controllerSelect);
     controllerSelect = makeButton(controllerSelect, controllerSelect);
+    homeSelect= makeButton(homeSelect,controllerSelect);
 
     // Add JButtons to layout
     mainPanel.add(passengerSelect);
@@ -111,6 +114,9 @@ public class CommonInterface extends JFrame implements ActionListener
     mainPanel.add(controllerSelect);
     controllerSelect.addActionListener(this);
     mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+  //  mainPanel.add(homeSelect);
+   // homeSelect.addActionListener(this);
+    //mainPanel.add(Box.createRigidArea(new Dimension(2, 10)));
     
     // Set the default close operation and make the correct size.
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -126,8 +132,8 @@ public class CommonInterface extends JFrame implements ActionListener
     
     else if (event.getSource() == driverSelect)
     {
-      DriverInterface theDriverInterface = new DriverInterface();
-      theDriverInterface.setVisible(true);
+       LoginInterface theLoginInterface = new LoginInterface();
+      theLoginInterface.setVisible(true);
       this.dispose();
     } // if
       
