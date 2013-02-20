@@ -14,11 +14,16 @@ import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 // Program to implement a user interface.
-public class ConfirmationInterface extends JFrame implements ActionListener
+public class CommonInterface extends JFrame implements ActionListener
 {
   // JButtons for use on the interface.
-  private JButton backButton = new JButton("Back");
+  private JButton passengerSelect = new JButton("Passenger");
+  private JButton driverSelect = new JButton("Driver");
+  private JButton controllerSelect = new JButton("Controller");
+  private JButton homeSelect = new JButton("Home");
+
   
   // A public method to set the heading
   private static JPanel setHeading()
@@ -70,52 +75,78 @@ public class ConfirmationInterface extends JFrame implements ActionListener
   } // makeButton
   
   // Firstly, we need a constructor to build the GUI.
-  public ConfirmationInterface()
+  public CommonInterface()
   {
     // Set the window title
-    setTitle("IBMS: Confirm Request");
+    setTitle("IBMS: Main");
     
     // Make contents appear.
     Container contents = getContentPane();
     
-    // Set the heading
+    // Pixel gaps are 10 between each column and 20 between each row.
+    contents.setLayout(new BorderLayout());
+    contents.setBackground(Color.WHITE);    
+    
+    // Add the heading panel
     contents.add(setHeading(), BorderLayout.NORTH);
-           
+    
     // Make another JPanel for the buttons - separate section of the screen.
     JPanel mainPanel = new JPanel();
     
     // Add mainPanel to the layout and format
     contents.add(mainPanel, BorderLayout.CENTER);
-    mainPanel.setLayout(new GridLayout(0, 1));
+    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
     mainPanel.setBackground(Color.white);
     
-    // Format the buttons
-    backButton = makeButton(backButton, backButton);
+     // Format the buttons
+    passengerSelect = makeButton(passengerSelect, controllerSelect);
+    driverSelect = makeButton(driverSelect, controllerSelect);
+    controllerSelect = makeButton(controllerSelect, controllerSelect);
+    homeSelect= makeButton(homeSelect,controllerSelect);
 
-    // Add a JLabel for the confirmation
-    JLabel confirmationJLabel = new JLabel("You have submitted your request for approval");
-    mainPanel.add(confirmationJLabel);
     // Add JButtons to layout
-    mainPanel.add(backButton);
-    backButton.addActionListener(this);
+    mainPanel.add(passengerSelect);
+    passengerSelect.addActionListener(this);
     mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
-
+    mainPanel.add(driverSelect);
+    driverSelect.addActionListener(this);
+    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+    mainPanel.add(controllerSelect);
+    controllerSelect.addActionListener(this);
+    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
+  //  mainPanel.add(homeSelect);
+   // homeSelect.addActionListener(this);
+    //mainPanel.add(Box.createRigidArea(new Dimension(2, 10)));
     
     // Set the default close operation and make the correct size.
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     pack();
     setLocationRelativeTo(null);
-  } // ConfirmationInterface
+  } // CommonInterface
   
   // Action performed method
-  public void actionPerformed(ActionEvent thisEvent)
+  public void actionPerformed(ActionEvent event)
   {
-    if(thisEvent.getSource() == backButton)
+    if(event.getSource() == passengerSelect)
+      System.out.println("I pressed the passenger button");
+    
+    else if (event.getSource() == driverSelect)
     {
-      DriverInterface theDriverInterface = new DriverInterface();
-      theDriverInterface.setVisible(true);
+       LoginInterface theLoginInterface = new LoginInterface();
+      theLoginInterface.setVisible(true);
       this.dispose();
-    }
+    } // if
+      
+    else if (event.getSource() == controllerSelect)
+      System.out.println("I pressed the controller button");
   } // actionPerformed
-
-} // class ConfirmationInterface
+  
+  public static void main(String[] args)
+  {
+    // Run the window.
+    CommonInterface theCommonInterface = new CommonInterface();
+    
+    // Make sure we can see it.
+    theCommonInterface.setVisible(true);
+  } // main
+} // class CommonInterface
