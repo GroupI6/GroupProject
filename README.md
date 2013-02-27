@@ -9,4 +9,6 @@ We all should now know the username and password for the account. I sent it arou
 
 To upload a new file, there is a little plus button next to the name of the repository on the screen with all the files listed. You click that, write the file name and then copy your code into the black box. Then PLEASE write a comment at the bottom describing your update etc. 
 
+ALL  THE *INTERFACE FILES ARE NOW REDUNDANT.
+
 Sarah x
