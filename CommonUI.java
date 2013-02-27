@@ -71,8 +71,8 @@ public class CommonUI extends JFrame implements ActionListener
     
     else if (event.getSource() == driverSelect)
     {
-      LoginInterface theLoginInterface = new LoginInterface();
-      theLoginInterface.setVisible(true);
+      LoginUI theLoginUI = new LoginUI();
+      theLoginUI.setVisible(true);
       this.dispose();
     } // if
       
