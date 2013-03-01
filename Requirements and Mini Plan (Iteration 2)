@@ -1,0 +1,67 @@
+1. What does a roster show?
+  Buses, drivers, timetable – controller can see by service, by driver or whole thing
+Assigns buses to services and driver to buses.
+2. What should and shouldn't a roster have?
+Same as q1.
+3. What do we need to implement?
+Same as q1.
+4. How do the drivers find out the updated roster – view roster on the driver interface?
+Drivers view specific roster for him – on driver interface
+5. What is a dynamic model?
+Sequence/Communication models
+6. How does rostering work?
+Controller gets to system – press button and roster produced. Produces one. 
+7. Should we assume that a maximum of 10 drivers can take a holiday on any one day (excluding Sundays and Bank Holidays)
+Yes
+8. Are drivers allowed to choose their own rest days.
+Driver picks 2 days and then keeps them for all of the weeks. Implemented as part of the system – Not at this stage – change it in the database.
+9. The way we understand the constraints at the moment is this: Have we missed anything?
+Need to make sure drivers cannot request holiday for the week the roster has produced. Or on the rest day. After split duty – maybe not consider them for the next day.
+10. When implementing replacement driver – do we consider the drivers feelings?
+Not for this iteration – but yes.
+11. Can a driver reject replacing someone else?
+12. Can a driver delete a holiday request?
+If its before the roster produced then yes – else no.
+13. Do we assume that there are back-up drivers in the database to cover the holidays etc?
+Yes
+14. Does the same happen for replacement buses? (Question 10)
+Not for this iteration
+15. When we cancel a service do you then make all buses on that service and all drivers on that service available?
+Yes – not this iteration
+16. Does a schedule need to be produced at the same time as the roster?
+Schedule every week - 
+17. Is there a minimum of hours that a driver must work before taking a holiday?
+no.
+18. Is there a minimum contracted hours for a driver if the maximum is 50 hours?
+no.
+19. How do we implement the rostering algorithm?
+Up to us.
+20. When we are testing our system, should there be things we prohibit? How do we extensively test this?
+Think of reasonable test cases – John to give a lecture this week.
+21. Scheduling?
+A schedule IS A timetable. 
+
+
+
+
+
+
+Mini Plan
+
+Week 1
+Discuss and act on feedback from the marking session last week. Models to be updated to reflect the changes that must be made. Also, we will revisit our use case descriptions and refine them to reflect the business process we are modelling. We will hold a meeting to reflect on iteration one and then change one significant thing.
+
+For the mid-week meeting, everyone will have researched rostering and considered the ways we can code rostering. However, we may have to wait for the COMP26120 lecture on rostering.
+
+Week 2
+This is the week where the coding will start. We will have a basic rostering algorithm for the end of this week. As an aside, we will look into constraints programming and consider how we could implement this in our project.
+
+Mid week meeting – consider how we can cut down the number of lines of code in our interfaces – make them more modular.
+
+Week 3
+We will start tying ends together this week and at least attempt to implement the constraints programming if we deem it suitable. Ensure that everything is working successfully.
+
+Mid week meeting – Finalise models and test plan and start writing the report. We will produce tests that extensively test the system. Complete the report.
+
+Week 4
+We will submit the report and give the demo of the project to the demonstrator.
