@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
+
 
 
 // Program to implement a user interface.
