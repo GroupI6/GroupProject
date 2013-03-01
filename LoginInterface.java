@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.*;
+
 
 // Program to implement a user interface.
 public class LoginInterface extends JFrame implements ActionListener
