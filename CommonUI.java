@@ -9,8 +9,7 @@ public class CommonUI extends JFrame implements ActionListener
   private JButton passengerSelect = new JButton("Passenger");
   private JButton driverSelect = new JButton("Driver");
   private JButton controllerSelect = new JButton("Controller");
-  private JButton homeSelect = new JButton("Home");
-
+  
   // Firstly, we need a constructor to build the GUI.
   public CommonUI()
   {
@@ -33,29 +32,22 @@ public class CommonUI extends JFrame implements ActionListener
     // Add mainPanel to the layout and format
     contents.add(mainPanel, BorderLayout.CENTER);
     BuildUI.formatPanel(mainPanel);
+    mainPanel.setLayout(new GridLayout(0,1));
     
-     // Format the buttons
+    // Format the buttons
     passengerSelect = BuildUI.makeButton(passengerSelect, controllerSelect);
     driverSelect = BuildUI.makeButton(driverSelect, controllerSelect);
     controllerSelect = BuildUI.makeButton(controllerSelect, controllerSelect);
-    homeSelect = BuildUI.makeButton(homeSelect,controllerSelect);
 
     // Add JButtons to layout
     mainPanel.add(passengerSelect);
     passengerSelect.addActionListener(this);
-    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
     
     mainPanel.add(driverSelect);
     driverSelect.addActionListener(this);
-    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
     
     mainPanel.add(controllerSelect);
     controllerSelect.addActionListener(this);
-    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
-    
-    mainPanel.add(homeSelect);
-    homeSelect.addActionListener(this);
-    mainPanel.add(Box.createRigidArea(new Dimension(10, 10)));
     
     // Set the default close operation and make the correct size.
     setDefaultCloseOperation(EXIT_ON_CLOSE);
