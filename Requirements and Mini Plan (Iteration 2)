@@ -29,17 +29,19 @@ Not for this iteration
 15. When we cancel a service do you then make all buses on that service and all drivers on that service available?
 Yes – not this iteration
 16. Does a schedule need to be produced at the same time as the roster?
-Schedule every week - 
+Schedule every week - because a scehdule is a timetable.
 17. Is there a minimum of hours that a driver must work before taking a holiday?
-no.
+No.
 18. Is there a minimum contracted hours for a driver if the maximum is 50 hours?
-no.
+No.
 19. How do we implement the rostering algorithm?
-Up to us.
+Up to us. Maybe just consider a greedy algorithm for the time being.
 20. When we are testing our system, should there be things we prohibit? How do we extensively test this?
 Think of reasonable test cases – John to give a lecture this week.
 21. Scheduling?
 A schedule IS A timetable. 
+22. What is a daily timetable?
+A timetable is what you'd see as a passenger at the bus stop. So a daily timetable is the timetable of the buses every day.
 
 
 
